@@ -3,6 +3,7 @@ package test.app.mvvmproj
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import test.app.mvvmproj.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
          binding = ActivityMainBinding.inflate(layoutInflater)
          setContentView(binding.root)
-         binding.button.setOnClickListener {
+
+        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+        binding.button.setOnClickListener {
              viewModel.getMovieName()
          }
         //observe y3ni o9ed 5lik mostmi3 bach ybzevi fil activity hathi
